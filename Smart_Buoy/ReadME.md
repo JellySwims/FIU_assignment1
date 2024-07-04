@@ -1,0 +1,1 @@
+Here we have a collection of scripts working in unison to create a smart buoy for FIU. The intended sensors for this project include wind (speed/ direction), IMU, 3 temperature sensors, a pyranometer, and possible gps location. 
