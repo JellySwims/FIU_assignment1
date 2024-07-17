@@ -1,5 +1,6 @@
 Here we have a collection of scripts working in unison to create a smart buoy for FIU. The intended sensors for this project include wind RS485 (speed/ direction), IMU, 3 temperature sensors, a pyranometer, and possible gps location. 
 
+
 Hardware
 The Sense HAT features an 8x8 RGB LED matrix, a mini joystick and the following sensors:
 
@@ -9,6 +10,7 @@ Magnetometer
 Temperature
 Humidity
 Barometric pressure
+
 
 Documentation
 Comprehensive documentation is available at https://sense-hat.readthedocs.io/en/latest/.
