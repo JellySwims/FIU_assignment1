@@ -46,7 +46,34 @@ Finally, a reboot may be required if I2C was disabled or the kernel was not up-t
     $ sudo reboot
     
 Getting started
+
 After installation, example code can be found under /usr/src/sense-hat/examples.
+
+The calibration program displays the following menu:
+
+Options are:
+
+  m - calibrate magnetometer with min/max
+  e - calibrate magnetometer with ellipsoid (do min/max first)
+  a - calibrate accelerometers
+  x - exit
+
+Enter option:
+Press lowercase m. The following message will then show. Press any key to start.
+
+    Magnetometer min/max calibration
+    --------------------------------
+    Waggle the IMU chip around, ensuring that all six axes
+    (+x, -x, +y, -y and +z, -z) go through their extrema.
+    When all extrema have been achieved, enter 's' to save, 'r' to reset
+    or 'x' to abort and discard the data.
+
+    Press any key to start...
+After it starts, you should see output similar to the following scrolling up the screen:
+
+
+ Min x:  51.60  min y:  69.39  min z:  65.91
+ Max x:  53.15  max y:  70.97  max z:  67.97
 
 Further reading
 You can find more information on how to use the Sense HAT in the Raspberry Pi Press book Experiment with the Sense HAT. Written by The Raspberry Pi Foundation’s Education Team, it is part of the MagPi Essentials series published by Raspberry Pi Press. The book covers the background of the Astro Pi project, and walks you through how to make use of all the Sense HAT features using the Python library.
