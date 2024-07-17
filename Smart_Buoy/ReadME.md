@@ -1,15 +1,15 @@
-Here we have a collection of scripts working in unison to create a smart buoy for FIU. The intended sensors for this project include wind RS485 (speed/ direction), IMU, 3 temperature sensors, a pyranometer, and possible gps location. 
+Here we have a collection of scripts working in unison to create a smart buoy for FIU. The intended sensors for this project include wind RS485 (speed/ direction), IMU (raspberry hat), 3 temperature sensors (air, surface, 1m depth), a pyranometer, and possibly a gps location. 
 
 
 Hardware
 The Sense HAT features an 8x8 RGB LED matrix, a mini joystick and the following sensors:
 
-Gyroscope
-Accelerometer
-Magnetometer
-Temperature
-Humidity
-Barometric pressure
+	Gyroscope
+	Accelerometer
+	Magnetometer
+	Temperature
+	Humidity
+	Barometric pressure
 
 
 Documentation
@@ -17,7 +17,8 @@ Comprehensive documentation is available at https://sense-hat.readthedocs.io/en/
 
 Installation
 
-RTIMULib
+		RTIMULib
+  
 This is the actual RTIMULib library source. Custom apps only need to include this library.
 
 Linux
@@ -26,7 +27,8 @@ This directory contains the embedded Linux demo apps (for Raspberry Pi and Intel
 RTHost
 RTHost contains the two apps, RTHost and RTHostGL, that can be used by desktops that don't have direct connection to an IMU (as they don't have I2C or SPI interfaces). An Arduino running RTArduLinkIMU from the RTIMULib-Arduino repo provides the hardware interface and a USB cable provides the connection between the desktop and the Arduino.
 
-RTEllipsoidFit
+		RTEllipsoidFit
+  
 This contains Octave code used by the ellipsiod fit data generation in RTIMULibCal, RTIMULibDemo, RTIMULibDemoGL, RTHostIMU and RTHostIMUGL. It's important that a copy of this directory is at the same level, or the one above, the app's working directory or ellipsoid fit data generation will fail.
 git clone https://github.com/RPi-Distro/RTIMULib.git
 
