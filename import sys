@@ -1,0 +1,61 @@
+import sys
+import os
+import time
+from lsm9ds1_rjg import Driver, I2CTransport
+
+class SimpleExample:
+    """This example shows how to poll the LSM9DS1 sensor for new data using I2C."""
+    
+    def __init__(self):
+        try:
+            self.driver = self._create_i2c_driver()
+            self.driver.configure()
+        except Exception as e:
+            print(f"Error initializing LSM9DS1 driver: {e}")
+            sys.exit(1)
+
+    def _create_i2c_driver(self) -> Driver:
+        try:
+            return Driver(
+                I2CTransport(1, I2CTransport.I2C_AG_ADDRESS),
+                I2CTransport(1, I2CTransport.I2C_MAG_ADDRESS))
+        except Exception as e:
+            print(f"Error creating I2C driver: {e}")
+            raise
+
+    def main(self):
+        try:
+            count = 0
+            while count < 50:
+                ag_data_ready = self.driver.read_ag_status().accelerometer_data_available
+                if ag_data_ready:
+                    self.read_ag()
+                    self.read_magnetometer()
+                    count += 1
+                else:
+                    time.sleep(0.00001)
+        except Exception as e:
+            print(f"Error in main loop: {e}")
+        finally:
+            self.driver.close()
+
+    def read_ag(self):
+        try:
+            temp, acc, gyro = self.driver.read_ag_data()
+            print(f'Temp: {temp}, Acc: {acc}, Gyro: {gyro}')
+        except Exception as e:
+            print(f"Error reading accelerometer/gyroscope data: {e}")
+
+    def read_magnetometer(self):
+        try:
+            mag = self.driver.read_magnetometer()
+            print(f'Magnetometer: {mag}')
+        except Exception as e:
+            print(f"Error reading magnetometer data: {e}")
+
+
+if __name__ == '__main__':
+    # Install these dependencies using pip:
+    # pip install lsm9ds1-rjg smbus2
+    
+    SimpleExample().main()
